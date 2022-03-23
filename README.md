@@ -15,7 +15,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Test Run this project
 
-The project is available at
+The project is available at https://fundeth-pi.vercel.app/fundraising
 
 To use this Application effectively:
 
