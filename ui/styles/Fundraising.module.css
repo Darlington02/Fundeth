@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.container{
+  background: linear-gradient(#b50ee3, #b50ee3);
+  min-height: 100vh;
+}
+
+/* navbar */
+.navbar{
+    display: flex;
+    padding: 20px 20px 20px 20px;
+    justify-content: space-between; 
+  }
+  .logo{
+    color: white;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+  .login_btn{
+    background: white;
+    width: 120px;
+    height: 50px;
+    border-radius: 7px;
+    color: black;
+    font-weight: bold;
+    border: none;
+  }
+  .login_btn:hover{
+    background: #fbb8fc;
+  }
+
+  
+.content{
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    grid-gap: 3rem;
+    font-family: times new roman;
+    background: linear-gradient(black, #b50ee3);
+    padding: 40px;
+}
+
+@media(max-width: 960px){
+    .content{
+        padding: 10px;
+        display: block;
+    }
+}
+
+.image{
+    border-radius: 15px;
+    height: 590px;
+}
+
+@media(max-width: 960px){
+    .image{
+        height: 330px;
+    }
+}
+
+.payment{
+    background: #fbb8fc;
+    height: 590px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+@media(max-width: 960px){
+    .payment{
+        height: 610px;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+.donate_input{
+    width: 70%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid black;
+}
+.donate_btn{
+    width: 25%;
+    height: 50px;
+    border: none;
+    background: purple;
+    color: white;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    border-radius: 7%;
+    cursor: pointer;
+}
+
+.withdraw{
+    background: #b50ee3;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 60px;
+    border-radius: 7px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
+  .end{
+    background: white;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 60px;
+    border-radius: 7px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
+  .instructions{
+      background: #b50ee3;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 7px;
+      padding: 5px;
+      margin: 5px;
+  }
