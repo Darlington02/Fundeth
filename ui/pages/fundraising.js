@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import {useState, useEffect} from 'react'
 import Web3 from 'web3'
 import Contract from '../blockchain/index'
@@ -64,27 +65,27 @@ export default function Home() {
      // extract variables and functions from contract
     useEffect(() => {
 
+        const getContractVariables = async() => {
+            // get owner address
+            const owner = await contract.methods.owner().call()
+            setOwner(owner)
+
+            // get amountToBeRaised
+            const amountToBeRaised = await contract.methods.amountToBeRaised().call()
+            setTargetAmount(web3.utils.fromWei(amountToBeRaised, "ether"))
+
+            // get amountRaised
+            const amountRaised = await contract.methods.amountRaised().call()
+            setAmountRaised(web3.utils.fromWei(amountRaised))
+
+            // get hasEnded value
+            const hasEnded = await contract.methods.hasEnded().call()
+            setHasEnded(hasEnded)
+        } 
+
         if(contract) getContractVariables();
         
     }, [contract])
-
-    const getContractVariables = async() => {
-        // get owner address
-        const owner = await contract.methods.owner().call()
-        setOwner(owner)
-
-        // get amountToBeRaised
-        const amountToBeRaised = await contract.methods.amountToBeRaised().call()
-        setTargetAmount(web3.utils.fromWei(amountToBeRaised, "ether"))
-
-        // get amountRaised
-        const amountRaised = await contract.methods.amountRaised().call()
-        setAmountRaised(web3.utils.fromWei(amountRaised))
-
-        // get hasEnded value
-        const hasEnded = await contract.methods.hasEnded().call()
-        setHasEnded(hasEnded)
-    } 
 
     // handle the donation form
     const formHandler = (event) => {
@@ -146,7 +147,7 @@ export default function Home() {
 
         {/* Navbar */}
         <navbar className={styles.navbar}>
-          <a href="/"><logo className={styles.logo}>FundEth</logo></a>
+          <Link href="/"><logo className={styles.logo}>FundEth</logo></Link>
           <login className={styles.login}>
             <button className={styles.login_btn} onClick={connectWalletHandler}>
                 {
@@ -166,11 +167,11 @@ export default function Home() {
         {/* Content */}
         <section className={styles.content}>
             <section className={styles.image}>
-                <img src="https://media.istockphoto.com/photos/sickness-seasonal-virus-problem-concept-woman-being-sick-having-flu-picture-id1175000095?k=20&m=1175000095&s=612x612&w=0&h=_9o8sYoOI-DtNEt-YXv3a3Bhd1KxauSLQCay2qYGvO0=" className={styles.image} width="100%" />
+                <Image src="https://media.istockphoto.com/photos/sickness-seasonal-virus-problem-concept-woman-being-sick-having-flu-picture-id1175000095?k=20&m=1175000095&s=612x612&w=0&h=_9o8sYoOI-DtNEt-YXv3a3Bhd1KxauSLQCay2qYGvO0=" className={styles.image} width="950px" height="590px" alt="" />
             </section>
 
             <section className={styles.payment}>
-                <h1>Funding for Sarah's Surgery</h1>
+                <h1>Funding for Sarah</h1>
                 <hr />
                 <h2><span>{amountRaised} ETH</span> raised of {targetAmount} ETH</h2>
                 <p>Organized By: Nnam Darlington</p>
@@ -210,3 +211,4 @@ export default function Home() {
     </div>
   )
 }
+
